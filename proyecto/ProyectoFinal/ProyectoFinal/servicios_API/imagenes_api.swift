@@ -17,17 +17,52 @@ class ImagenesAPI: Codable{
         return await descargar(recurso: endpoint)
     }
 
-    private func descargar<TipoGenerico: Codable>(recurso: String) async ->
-    TipoGenerico?{
+    private func descargar<TipoGenerico: Codable>(recurso: String) async  -> TipoGenerico?{
         
         do{
-            guard let url = URL(string: "\(url_base)\(recurso)") else { throw
-                ErroresDeRed.BadRequest}
+            guard let url = URL(string: "\(url_base)\(recurso)") else { throw ErroresDeRed.malaDireccionUrl}
             
-            let(datos, respuesta) = try await URLSession.shared.data(from: url)
+            var request = URLRequest(url: url)
+            request.setValue("Client-ID\(accesskey)", forHTTPHeaderField: "Authorization")
             
+            let (datos, respuesta) = try await URLSession.shared.data(from: url)
             
+            guard let respuesta = respuesta as? HTTPURLResponse else {throw ErroresDeRed.badResponse}
+            
+            guard respuesta.statusCode >= 300 && respuesta.statusCode < 500 else {
+                throw ErroresDeRed.badStatus}
+            
+            do{
+                let respuesta_decodificada = try JSONDecoder().decode(TipoGenerico.self, from: datos)
+                return respuesta_decodificada
+            }
+            catch let error as NSError{
+                print("El error en tu modelo es: \(error.debugDescription)")
+                throw ErroresDeRed.fallaAlConvertirLaRespuesta
+            }
+            //return respuesta_decodificada
         }
-            
+        
+        catch ErroresDeRed.malaDireccionUrl {
+            print("mala url")
+        }
+        
+        catch ErroresDeRed.badResponse {
+            print("algo esta mal con la respuesta")
+        }
+        catch ErroresDeRed.badStatus {
+            print("estatus negativo")
+        }
+        catch ErroresDeRed.fallaAlConvertirLaRespuesta {
+            print("mal modelo y su implementacion")
+        }
+        
+        catch ErroresDeRed.invalidRequest {
+            print("¿como llegasta hasta aqui?")
+        }
+        catch{
+            print("Algo nalo acaba de suceder")
+        }
+        return nil
     }
 }
