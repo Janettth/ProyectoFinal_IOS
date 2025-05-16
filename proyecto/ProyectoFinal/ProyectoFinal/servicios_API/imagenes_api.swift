@@ -11,7 +11,7 @@ class ImagenesAPI: Codable{
     let url_base = "https://api.unsplash.com/"
     let accesskey = "THNOFvVX69hdvSrcYwrqmWzcKhjLEmUfy21HC34iPVs"
     
-    func descaragar_imagenes() async -> PaginaImagenes?{
+    func descaragar_imagenes() async throws -> [Imagen]?{
         let endpoint = "/photos"
         
         return await descargar(recurso: endpoint)
@@ -23,13 +23,13 @@ class ImagenesAPI: Codable{
             guard let url = URL(string: "\(url_base)\(recurso)") else { throw ErroresDeRed.malaDireccionUrl}
             
             var request = URLRequest(url: url)
-            request.setValue("Client-ID\(accesskey)", forHTTPHeaderField: "Authorization")
+            request.setValue("Client-ID \(accesskey)", forHTTPHeaderField: "Authorization")
             
-            let (datos, respuesta) = try await URLSession.shared.data(from: url)
+            let (datos, respuesta) = try await URLSession.shared.data(for: request)
             
             guard let respuesta = respuesta as? HTTPURLResponse else {throw ErroresDeRed.badResponse}
             
-            guard respuesta.statusCode >= 300 && respuesta.statusCode < 500 else {
+            guard respuesta.statusCode >= 200 && respuesta.statusCode < 300 else {
                 throw ErroresDeRed.badStatus}
             
             do{

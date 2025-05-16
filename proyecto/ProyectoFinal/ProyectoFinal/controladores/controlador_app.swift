@@ -11,7 +11,7 @@ import SwiftUI
 @MainActor
 
 public class ControladorAplicacion{
-    var Paginaresultados: PaginaImagenes? = nil
+    var Paginaresultados: Array<Imagen> = []
     
     init(){
         Task.detached(priority: .high){
@@ -21,9 +21,9 @@ public class ControladorAplicacion{
     
     
     func descaragar_imagenes() async {
-        guard let imagenes_descargadas: PaginaImagenes = try? await
+        guard let imagenes_descargadas: [Imagen] = try? await
                 ImagenesAPI().descaragar_imagenes() else {return}
         
-        self.Paginaresultados = imagenes_descargadas
+        Paginaresultados = imagenes_descargadas
     }
 }
