@@ -7,8 +7,8 @@
 
 struct PaginaImagenes: Codable{
     let id: Int
-    let description : String
-    let user : [Usuario]
-    let urls : [urls_imagene]
+    let description : String?
+    let user : Usuario
+    let urls : urlImagen
 }
 
