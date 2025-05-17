@@ -40,7 +40,8 @@ struct PantallaPrincipal: View {
                 ]){
                     ForEach(controlador.Paginaresultados){
                         imagen in NavigationLink{
-                            Text("Hola \(imagen.urls.regular)")
+                            //Text("Hola \(imagen.urls.regular)")
+                            ImagenesInformacion(ImagenInformacion: imagen)
                         }label: {
                             
                             AsyncImage(url: URL(string: imagen.urls.regular)){ image in

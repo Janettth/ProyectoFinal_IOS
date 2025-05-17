@@ -26,4 +26,5 @@ public class ControladorAplicacion{
         
         Paginaresultados = imagenes_descargadas
     }
+    
 }
