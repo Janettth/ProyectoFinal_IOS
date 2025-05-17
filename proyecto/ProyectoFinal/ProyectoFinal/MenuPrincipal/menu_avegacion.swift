@@ -17,9 +17,9 @@ struct MenuNavegacion: View {
             PantallaPrincipal()
                 .tabItem {
                     Label("pantalla1", systemImage: "pencil")
-                }.badge(controlador.Paginaresultados.count)
+                }
             
-            Rectangle()
+            ImagenAleatoria()
                 .tabItem {
                     Label("pantalla2", systemImage: "pencil")
                 }
@@ -33,6 +33,7 @@ struct MenuNavegacion: View {
                     Label("Pantalla4" , systemImage: "pencil")
                 }
         }
+        
         
     }
 }

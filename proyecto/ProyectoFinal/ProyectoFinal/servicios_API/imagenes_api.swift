@@ -17,6 +17,12 @@ class ImagenesAPI: Codable{
         return await descargar(recurso: endpoint)
     }
     
+    func descargar_imagen_random() async -> Imagen?{
+        let endpoint = "/photos/random"
+        
+        return await descargar(recurso: endpoint)
+    }
+    
 
     private func descargar<TipoGenerico: Codable>(recurso: String) async  -> TipoGenerico?{
         
