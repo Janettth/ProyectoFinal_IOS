@@ -8,10 +8,15 @@
 import SwiftUI
 
 var ejemplourlsej = urlImagen(regular: "https://www.hola.com/horizon/square/2ba9dcaea342-husky-t.jpg", small: "dfufrfrufr")
-var ejemplous = Usuario(id: "eferf", username: "ffrnfjr", name: "bfbejfebfj")
+
+var ejemplourlsperfil = urlPerfil(small: "brjbr", medium: "edbjd", large: "ebjbejd")
+
+var ejemplous = Usuario(id: "edhedeh", username: "bdejbedj", name: "njjdbde", profile_image: ejemplourlsperfil)
 var imagenEjemplo = Imagen(id: "fbhfrb", description: "fbdfrbfjrf", user: ejemplous, urls: ejemplourlsej)
 
 struct ImagenesInformacion: View {
+    
+    @Environment(ControladorAplicacion.self) var controlador
     
     var ImagenInformacion: Imagen
     var body: some View {
@@ -34,14 +39,24 @@ struct ImagenesInformacion: View {
             .padding(5)
             
             
-            
-            HStack{
-                Text("Crado por:\(ImagenInformacion.user.username)")
-                    .font(.system(size: 15))
+            NavigationLink{
+                PerfilSeleccionado()
+            }label:{
                 
-                Spacer()
-            }.frame(width: 300)
-                .padding(.leading)
+                HStack{
+                    Text("Crado por:\(ImagenInformacion.user.username)")
+                        .font(.system(size: 15))
+                    
+                    Spacer()
+                }.frame(width: 300)
+                    .padding(.leading)
+                    .foregroundColor(.black)
+                
+            }.simultaneousGesture(TapGesture().onEnded({
+                controlador.ver_perfil(username_selec: ImagenInformacion.user.username)
+                
+            }))
+            
             
             
             Text(ImagenInformacion.description ?? "Sin descripción")
@@ -63,4 +78,5 @@ struct ImagenesInformacion: View {
 
 #Preview {
     ImagenesInformacion(ImagenInformacion: imagenEjemplo)
+        .environment(ControladorAplicacion())
 }

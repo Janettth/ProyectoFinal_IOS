@@ -19,11 +19,11 @@ struct MenuNavegacion: View {
                     Label("pantalla1", systemImage: "pencil")
                 }
             
-            ImagenAleatoria()
+            Rectangle()
                 .tabItem {
                     Label("pantalla2", systemImage: "pencil")
                 }
-            Rectangle()
+            ImagenAleatoria()
                 .tabItem {
                     Label("Shufle", systemImage: "shuffle")
                 }

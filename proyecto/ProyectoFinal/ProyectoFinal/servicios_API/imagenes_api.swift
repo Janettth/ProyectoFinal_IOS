@@ -23,7 +23,18 @@ class ImagenesAPI: Codable{
         return await descargar(recurso: endpoint)
     }
     
-
+    func descargar_perfil(username: String) async -> Usuario? {
+        let endpoint = "/users/\(username)"
+        
+        return await descargar(recurso: endpoint)
+    }
+    
+    func descargar_imagenes_de_perfil(username_para_imagen: String) async -> [Imagen]?{
+        let endpoint = "/users/\(username_para_imagen)/photos"
+        return await descargar(recurso: endpoint)
+    }
+    
+    
     private func descargar<TipoGenerico: Codable>(recurso: String) async  -> TipoGenerico?{
         
         do{
