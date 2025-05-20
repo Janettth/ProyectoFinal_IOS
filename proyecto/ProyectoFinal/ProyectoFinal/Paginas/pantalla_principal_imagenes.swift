@@ -25,7 +25,7 @@ struct PantallaPrincipal: View {
                     Text("Imagenes\nAleatorias")
                         .padding(20)
                         .multilineTextAlignment(.leading)
-                        .foregroundColor(.white)
+                        .foregroundColor(.white) 
                         .font(.custom("Times", size: 80))
                         
                 }
@@ -41,7 +41,7 @@ struct PantallaPrincipal: View {
                     ForEach(controlador.Paginaresultados){
                         imagen in NavigationLink{
                             //Text("Hola \(imagen.urls.regular)")
-                            ImagenesInformacion(ImagenInformacion: imagen)
+                            ImagenesInformacion()
                         }label: {
                             
                             AsyncImage(url: URL(string: imagen.urls.regular)){ image in
@@ -53,7 +53,9 @@ struct PantallaPrincipal: View {
                             .frame(width: 170, height: 190)
                             .padding(5)
 
-                        }
+                        }.simultaneousGesture(TapGesture().onEnded({ 
+                            controlador.descargar_imagen(id_imagen: imagen.id)
+                        }))
                     }
                 }
                 

@@ -50,7 +50,7 @@ struct PerfilSeleccionado: View {
                                 ForEach(controlador.Imagenes_de_perfil){
                                     imagen in
                                     NavigationLink{
-                                        ImagenesInformacion(ImagenInformacion: imagen)
+                                        ImagenesInformacion()
                                     }label: {
                                         
                                         VStack{
@@ -64,7 +64,7 @@ struct PerfilSeleccionado: View {
                                         }
                                         
                                     }
-                                }
+                                }//llamar aqui a la informacion imagen
                             }
                         }
                     }

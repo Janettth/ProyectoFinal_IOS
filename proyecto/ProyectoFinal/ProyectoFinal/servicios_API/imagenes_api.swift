@@ -34,6 +34,21 @@ class ImagenesAPI: Codable{
         return await descargar(recurso: endpoint)
     }
     
+    func decsargar_imagen_selecionada(id: String) async -> Imagen?{
+        
+        let enpoint = "/photos/\(id)"
+        return await descargar(recurso: enpoint)
+    }
+    
+    
+    
+    /*func descargar_coleccion() async throws -> [Imagen]?{
+        let endpoint = "/collections"
+        
+        return await descargar(recurso: endpoint)
+    }*/
+    
+    
     
     private func descargar<TipoGenerico: Codable>(recurso: String) async  -> TipoGenerico?{
         

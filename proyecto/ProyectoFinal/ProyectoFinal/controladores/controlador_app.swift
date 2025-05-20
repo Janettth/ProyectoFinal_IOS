@@ -19,11 +19,17 @@ public class ControladorAplicacion{
     
     var Imagenes_de_perfil : Array<Imagen> = []
     
+    var imagen_seleccionada: Imagen? = nil
+    
+    //var colecciones : Array<Imagen> = []
+    
     init(){
         Task.detached(priority: .high){
             await self.descaragar_imagenes()
             
             await self.descargar_imagen_random()
+            
+            //await self.descargar_colecciones()
             
         }
     }
@@ -64,5 +70,23 @@ public class ControladorAplicacion{
         
         Imagenes_de_perfil = imagenes_perfil
     }
+    
+    func descargar_imagen_seleccionada(id: String) async {
+        guard let Imagen: Imagen = try? await
+                ImagenesAPI().decsargar_imagen_selecionada(id: id) else {return}
+        
+        imagen_seleccionada = Imagen
+    }
+    
+    func descargar_imagen(id_imagen: String){
+        Task.detached(operation: {
+            await self.descargar_imagen_seleccionada(id: id_imagen)
+        })
+    }
+    /*func descargar_colecciones() async {
+        guard let colecciones_decargadas: [Imagen] = try? await ImagenesAPI().descargar_coleccion() else {return}
+        
+        colecciones = colecciones_decargadas
+    }*/
     
 }

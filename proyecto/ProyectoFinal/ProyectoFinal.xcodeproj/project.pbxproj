@@ -14,6 +14,7 @@
 		FB382C162DD2589F000DA311 /* errores.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB382C152DD2589F000DA311 /* errores.swift */; };
 		FBAFCE852DDB89AD007EE330 /* pantalla_perfil_seleccionado.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAFCE842DDB89AD007EE330 /* pantalla_perfil_seleccionado.swift */; };
 		FBAFCE872DDB963B007EE330 /* urls_perfil.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAFCE862DDB963B007EE330 /* urls_perfil.swift */; };
+		FBAFCEC72DDBF493007EE330 /* pagina_colecciones.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAFCEC62DDBF493007EE330 /* pagina_colecciones.swift */; };
 		FBC4E9F12DD7FD0E0024C10E /* pagina_imagenesinformacion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC4E9F02DD7FD0E0024C10E /* pagina_imagenesinformacion.swift */; };
 		FBC4E9F42DD80C510024C10E /* menu_avegacion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC4E9F32DD80C510024C10E /* menu_avegacion.swift */; };
 		FBC4E9F62DD8186D0024C10E /* Pagina_imagen_aleatoria.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC4E9F52DD8186D0024C10E /* Pagina_imagen_aleatoria.swift */; };
@@ -53,6 +54,7 @@
 		FB382C152DD2589F000DA311 /* errores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = errores.swift; sourceTree = "<group>"; };
 		FBAFCE842DDB89AD007EE330 /* pantalla_perfil_seleccionado.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pantalla_perfil_seleccionado.swift; sourceTree = "<group>"; };
 		FBAFCE862DDB963B007EE330 /* urls_perfil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = urls_perfil.swift; sourceTree = "<group>"; };
+		FBAFCEC62DDBF493007EE330 /* pagina_colecciones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pagina_colecciones.swift; sourceTree = "<group>"; };
 		FBC4E9F02DD7FD0E0024C10E /* pagina_imagenesinformacion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pagina_imagenesinformacion.swift; sourceTree = "<group>"; };
 		FBC4E9F32DD80C510024C10E /* menu_avegacion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menu_avegacion.swift; sourceTree = "<group>"; };
 		FBC4E9F52DD8186D0024C10E /* Pagina_imagen_aleatoria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagina_imagen_aleatoria.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				FBC4E9F02DD7FD0E0024C10E /* pagina_imagenesinformacion.swift */,
 				FBC4E9F52DD8186D0024C10E /* Pagina_imagen_aleatoria.swift */,
 				FBAFCE842DDB89AD007EE330 /* pantalla_perfil_seleccionado.swift */,
+				FBAFCEC62DDBF493007EE330 /* pagina_colecciones.swift */,
 			);
 			path = Paginas;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				FBDF6BE32DCE53E500BA0AF1 /* ContentView.swift in Sources */,
 				FBC4E9F62DD8186D0024C10E /* Pagina_imagen_aleatoria.swift in Sources */,
 				FB382C142DD25485000DA311 /* urls.swift in Sources */,
+				FBAFCEC72DDBF493007EE330 /* pagina_colecciones.swift in Sources */,
 				FB382C162DD2589F000DA311 /* errores.swift in Sources */,
 				FBAFCE852DDB89AD007EE330 /* pantalla_perfil_seleccionado.swift in Sources */,
 				FB382C102DD24C42000DA311 /* pagina_imagenes_obtenidas.swift in Sources */,
