@@ -42,11 +42,11 @@ class ImagenesAPI: Codable{
     
     
     
-    /*func descargar_coleccion() async throws -> [Imagen]?{
+    func descargar_coleccion() async throws -> [Coleccion]?{
         let endpoint = "/collections"
         
         return await descargar(recurso: endpoint)
-    }*/
+    }
     
     
     

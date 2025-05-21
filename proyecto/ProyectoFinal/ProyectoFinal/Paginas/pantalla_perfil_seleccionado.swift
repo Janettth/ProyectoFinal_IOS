@@ -63,7 +63,9 @@ struct PerfilSeleccionado: View {
                                                 
                                         }
                                         
-                                    }
+                                    }.simultaneousGesture(TapGesture().onEnded({
+                                        controlador.descargar_imagen(id_imagen: imagen.id)
+                                    }))
                                 }//llamar aqui a la informacion imagen
                             }
                         }

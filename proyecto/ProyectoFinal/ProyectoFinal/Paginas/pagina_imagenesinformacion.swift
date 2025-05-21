@@ -13,13 +13,14 @@ struct ImagenesInformacion: View {
     @Environment(ControladorAplicacion.self) var controlador
     
     var body: some View {
-        Text("\(controlador.imagen_seleccionada?.id)")
+        
         VStack{
             
             NavigationLink{
                 PerfilSeleccionado()
             }label: {
                 HStack{
+                   
                     AsyncImage(url: URL(string: controlador.imagen_seleccionada?.user.profile_image.large ?? "https://www.radioromance.com/wp-content/uploads/2025/01/PATOS.jpeg")){ image in
                         image.resizable()
                     } placeholder: {
@@ -31,7 +32,12 @@ struct ImagenesInformacion: View {
                     
                     Text(controlador.imagen_seleccionada?.user.username ?? "nul")
                     
+                    Spacer()
+                    
                 }
+                
+                .frame(width: 320, height: 30)
+                .padding()
             }.simultaneousGesture(TapGesture().onEnded({
                 controlador.ver_perfil(username_selec: controlador.imagen_seleccionada?.user.username ?? "")
             }))
@@ -43,11 +49,13 @@ struct ImagenesInformacion: View {
                 ProgressView()
             }
             .cornerRadius(20)
-            .frame(width: 170, height: 190)
+            .frame(width: 350, height: 350)
             .padding(5)
             
             
-            Text("\(controlador.imagen_seleccionada?.description ?? "noo" )")
+            Text("\(controlador.imagen_seleccionada?.description ?? "" )")
+                .multilineTextAlignment(.leading)
+            
         }
     }
 }
