@@ -21,14 +21,14 @@ struct PantallaPrincipal: View {
                         
                         Text("Imagenes\nAleatorias")
                             .padding(20)
-                            .foregroundColor(.white)
+                            .foregroundColor(.green)
                             .font(.custom("Times", size: 50))
                         
                         Spacer()
                     }
                     
                     
-                    LazyVGrid(columns: [
+                    LazyVGrid(columns: [ //probablemnte quite el grid porque no me convence
                         
                         GridItem(.flexible(minimum: 80, maximum: 250)),
                         GridItem(.flexible(minimum: 80, maximum: 250))
@@ -43,30 +43,35 @@ struct PantallaPrincipal: View {
                                 
                                 ZStack{
                                     RoundedRectangle(cornerSize: CGSize(width: 15, height: 15))
+                                        .foregroundColor(Color.white)
+                                        .opacity(0.8)
+                                        .frame(height: 220)
+                                      
                                         
                                     VStack{
+                                     
                                         AsyncImage(url: URL(string: imagen.urls.regular)){ image in
                                             image.resizable()
                                         } placeholder: {
                                             ProgressView()
                                         }
                                         .cornerRadius(20)
-                                        .frame(width: 170, height: 190)
+                                        .frame(width: 150, height: 170)
                                         .padding(5)
                                         
                                         HStack{
                                             Text("\(imagen.user.username)")
-                                                .font(.system(size: 10))
+                                                .font(.system(size: 13))
                                             Spacer()
                                         }
                                         .frame(width: 150, height: 15)
                                         .foregroundColor(.black)
-                                        .padding()
+                                     
                                         
+
                                         
                                     }
                                 }
-                                
                                 
                                 
                             }.simultaneousGesture(TapGesture().onEnded({
@@ -76,7 +81,8 @@ struct PantallaPrincipal: View {
                     }
                     
                 } .padding(10)
-                    .background(  LinearGradient(gradient: Gradient(colors: [Color("ColorAzul"), Color("ColoreCrema")]), startPoint: .top, endPoint: .leading))
+                    /*.background(  LinearGradient(gradient: Gradient(colors: [Color("ColorRosaClaro"), Color("ColorRojo")]), startPoint: .top, endPoint: .leading))*/
+                    .background(Color("ColorAmarilloClaro"))
                 
             }
             

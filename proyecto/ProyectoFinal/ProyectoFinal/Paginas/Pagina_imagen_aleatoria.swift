@@ -16,29 +16,29 @@ struct ImagenAleatoria: View {
         
         ZStack{
             
-            LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .bottom, endPoint: .trailing)
-
+            /*LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .bottom, endPoint: .trailing)*/
             VStack{
                 Spacer()
                 
                 Text("El universo quiere que veas esta foto:")
                     .multilineTextAlignment(.leading)
-                    .foregroundColor(.white)
+                    .foregroundColor(.green)
                     .font(.custom("Times", size: 40))
                 
                 Spacer()
                 
-                AsyncImage(url: URL(string: imagenAleatoria?.urls.regular ?? "")){ image in
+                AsyncImage(url: URL(string: imagenAleatoria?.urls.regular ?? "https://static.nationalgeographic.es/files/styles/image_3200/public/nationalgeographic_1468962.jpg?w=1900&h=1400")){ image in
                     image.resizable()
                 } placeholder: {
                     ProgressView()
-                }.frame(width: 350, height: 450)
+                }.frame(width: 340, height: 440)
                     .cornerRadius(25)
                 
                 Spacer()
             }
             .padding(20)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(  LinearGradient(gradient: Gradient(colors: [Color("ColorAmarilloClaro"), Color("ColorRosaClaro")]), startPoint: .top, endPoint: .bottom))
             
             //.background(Color.blue)
             

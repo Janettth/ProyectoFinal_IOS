@@ -30,7 +30,8 @@ struct ImagenesInformacion: View {
                     .frame(width: 50, height: 50)
                     .padding(5)
                     
-                    Text(controlador.imagen_seleccionada?.user.username ?? "nul")
+                    Text(controlador.imagen_seleccionada?.user.username ?? "sin usuario")
+                        .foregroundStyle(Color.green)
                     
                     Spacer()
                     
@@ -55,9 +56,13 @@ struct ImagenesInformacion: View {
             
             Text("\(controlador.imagen_seleccionada?.description ?? "" )")
                 .multilineTextAlignment(.leading)
+                .foregroundColor(.green)
             
-        }
+        }.frame(width: 400, height: 1000)
+        /*.background(Color("ColorAmarilloClaro"))*/
+            .background(  LinearGradient(gradient: Gradient(colors: [Color("ColorAmarilloClaro"), Color("ColorRosaClaro")]), startPoint: .top, endPoint: .bottom))
     }
+    
 }
 
 #Preview {

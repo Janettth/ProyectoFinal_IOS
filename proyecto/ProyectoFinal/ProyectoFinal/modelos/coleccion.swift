@@ -9,6 +9,7 @@ struct Coleccion: Identifiable, Codable{
     let id: String
     let title: String
     let description : String?
+    let cover_photo: Imagen
     let user : Usuario
     let links : LinksColeccion
 }

@@ -23,6 +23,9 @@ public class ControladorAplicacion{
     
     var colecciones : Array<Coleccion> = []
     
+    var Imagenes_de_coleccion: Array<Imagen> = []
+    
+    
     init(){
         Task.detached(priority: .high){
             await self.descaragar_imagenes()
@@ -90,4 +93,17 @@ public class ControladorAplicacion{
         colecciones = colecciones_decargadas
     }
     
+    func descargar_imagenes_de_coleccion(id_coleccion: String) async {
+        guard let imagen_Coleccion: [Imagen] = try? await 
+                ImagenesAPI().descargar_imagenes_coleccion(id_coleccion: id_coleccion) else {return}
+        
+        Imagenes_de_coleccion = imagen_Coleccion
+    }
+    
+    
+    func descargar_imagenes_colec(id_colec: String) {
+        Task.detached(operation: {
+            await self.descargar_imagenes_de_coleccion(id_coleccion: id_colec)
+        })
+    }
 }
