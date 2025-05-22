@@ -28,7 +28,7 @@ struct PantallaPrincipal: View {
                     }
                     
                     
-                    LazyVGrid(columns: [ //probablemnte quite el grid porque no me convence
+                    LazyVGrid(columns: [ //
                         
                         GridItem(.flexible(minimum: 80, maximum: 250)),
                         GridItem(.flexible(minimum: 80, maximum: 250))

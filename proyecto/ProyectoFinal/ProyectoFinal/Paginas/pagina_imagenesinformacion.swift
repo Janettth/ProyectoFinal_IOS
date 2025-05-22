@@ -54,9 +54,15 @@ struct ImagenesInformacion: View {
             .padding(5)
             
             
-            Text("\(controlador.imagen_seleccionada?.description ?? "" )")
-                .multilineTextAlignment(.leading)
-                .foregroundColor(.green)
+            HStack{
+                Text("\(controlador.imagen_seleccionada?.description ?? "" )")
+                    .multilineTextAlignment(.leading)
+                    .foregroundColor(.green)
+                
+                Spacer()
+            }
+            .frame(width: 300)
+            .padding()
             
         }.frame(width: 400, height: 1000)
         /*.background(Color("ColorAmarilloClaro"))*/

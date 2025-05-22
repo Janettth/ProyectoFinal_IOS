@@ -70,7 +70,7 @@ struct PerfilSeleccionado: View {
                                                     image.resizable()
                                                 } placeholder: {
                                                     ProgressView()
-                                                }.frame(width: 170, height: 170)
+                                                }.frame(width: 150, height: 170)
                                                     .cornerRadius(25)
                                                 
                                             }

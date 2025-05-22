@@ -20,7 +20,7 @@ struct ImagenAleatoria: View {
             VStack{
                 Spacer()
                 
-                Text("El universo quiere que veas esta foto:")
+                Text("El universo \nquiere que \nveas esta foto:")
                     .multilineTextAlignment(.leading)
                     .foregroundColor(.green)
                     .font(.custom("Times", size: 40))
