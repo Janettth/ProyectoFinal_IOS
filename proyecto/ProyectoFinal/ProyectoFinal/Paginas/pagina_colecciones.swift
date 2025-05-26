@@ -14,8 +14,8 @@ struct PaginaColecciones: View {
             ScrollView{
                 LazyVStack{
                     HStack{
-                        Text("COLEC-\nCIONES")
-                            .font(.custom("Times", size: 55))
+                        Text("COLEC-\nCIÓNES :)")
+                            .font(.custom("Arial", size: 55))
                        
                         Spacer()
                     }

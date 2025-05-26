@@ -11,34 +11,63 @@ struct ColeccionSeleccionada: View {
     @Environment(ControladorAplicacion.self) var controlador
     
     var body: some View {
+        
         NavigationStack{
             ScrollView{
-                VStack{
-                    
-                    ForEach(controlador.Imagenes_de_coleccion){ imagen in
-                        NavigationLink{
-                            
+                
+                
+                
+                LazyVStack{
+                    ForEach(controlador.Imagenes_de_coleccion){ imagenColec in
+                        NavigationLink(){
+                            ImagenesInformacion()
                         }label: {
-                            
-                            VStack{
+                            ZStack{
                                 
-                                AsyncImage(url: URL(string: imagen.urls.regular)){ image in
-                                    image.resizable()
-                                } placeholder: {
-                                    ProgressView()
+                                RoundedRectangle(cornerSize: CGSize(width: 15, height: 15))
+                                    .frame(width: 360, height: 400)
+                                    .foregroundColor(.white)
+                                    .opacity(0.5)
+                                
+                                VStack{
+                                    AsyncImage(url: URL(string: imagenColec.urls.regular)){ image in
+                                        image.resizable()
+                                    } placeholder: {
+                                        ProgressView()
+                                    }
+                                    .frame(width: 320, height: 250)
+                                 
+                                    .cornerRadius(25)
+                                    
+                                    HStack{
+                                        AsyncImage(url: URL(string: imagenColec.user.profile_image.large )){ image in
+                                            image.resizable()
+                                        } placeholder: {
+                                            ProgressView()
+                                        }
+                                        .frame(width: 50, height: 50)
+                                        .cornerRadius(100)
+                                        .padding(10)
+                                        
+                                        Text(imagenColec.user.username)
+                                            .foregroundStyle(Color.black)
+                                            .font(.title3)
+                                        Spacer()
+                                    }
+                                    .frame(width: 320)
+                                    
                                 }
-                                .cornerRadius(20)
-                                .frame(width: 170, height: 190)
-                                .padding(5)
-                                
-                                Text(imagen.description ?? "no hay")
-                                
-                            }.background(  LinearGradient(gradient: Gradient(colors: [Color("ColorAmarilloClaro"), Color("ColorRosaClaro")]), startPoint: .top, endPoint: .bottom))
+                            }.padding()
+                            Spacer()
                             
+                                .simultaneousGesture(TapGesture().onEnded({
+                                    controlador.descargar_imagen(id_imagen: imagenColec.id)
+                                }))
                         }
                     }
                 }
-            }
+                
+            }.background(  LinearGradient(gradient: Gradient(colors: [Color("ColorAmarilloClaro"), Color("ColorRosaClaro")]), startPoint: .top, endPoint: .bottom))
         }
     }
 }

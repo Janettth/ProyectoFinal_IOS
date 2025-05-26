@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB0C47D42DE4D09B000A2A78 /* redes_sociales.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0C47D32DE4D09B000A2A78 /* redes_sociales.swift */; };
 		FB382C0D2DD249EC000DA311 /* imagenes_api.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB382C0C2DD249EC000DA311 /* imagenes_api.swift */; };
 		FB382C102DD24C42000DA311 /* pagina_imagenes_obtenidas.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB382C0F2DD24C42000DA311 /* pagina_imagenes_obtenidas.swift */; };
 		FB382C122DD25181000DA311 /* usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB382C112DD25181000DA311 /* usuario.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FB0C47D32DE4D09B000A2A78 /* redes_sociales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = redes_sociales.swift; sourceTree = "<group>"; };
 		FB382C0C2DD249EC000DA311 /* imagenes_api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imagenes_api.swift; sourceTree = "<group>"; };
 		FB382C0F2DD24C42000DA311 /* pagina_imagenes_obtenidas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pagina_imagenes_obtenidas.swift; sourceTree = "<group>"; };
 		FB382C112DD25181000DA311 /* usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = usuario.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				FBAFCE862DDB963B007EE330 /* urls_perfil.swift */,
 				FBE0AF802DDE2BFC009C665A /* coleccion.swift */,
 				FBE0AF822DDE2CD9009C665A /* links_coleccion.swift */,
+				FB0C47D32DE4D09B000A2A78 /* redes_sociales.swift */,
 			);
 			path = modelos;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBE0AF832DDE2CD9009C665A /* links_coleccion.swift in Sources */,
+				FB0C47D42DE4D09B000A2A78 /* redes_sociales.swift in Sources */,
 				FB382C122DD25181000DA311 /* usuario.swift in Sources */,
 				FB382C0D2DD249EC000DA311 /* imagenes_api.swift in Sources */,
 				FBC4E9F12DD7FD0E0024C10E /* pagina_imagenesinformacion.swift in Sources */,

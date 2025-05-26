@@ -19,10 +19,10 @@ struct PantallaPrincipal: View {
                     
                     HStack{
                         
-                        Text("Imagenes\nAleatorias")
+                        Text("Random\nPics :)")
                             .padding(20)
-                            .foregroundColor(.green)
-                            .font(.custom("Times", size: 50))
+                            .foregroundColor(.black)
+                            .font(.custom("Arial", size: 50))
                         
                         Spacer()
                     }
@@ -41,37 +41,20 @@ struct PantallaPrincipal: View {
                                 ImagenesInformacion()
                             }label: {
                                 
-                                ZStack{
-                                    RoundedRectangle(cornerSize: CGSize(width: 15, height: 15))
-                                        .foregroundColor(Color.white)
-                                        .opacity(0.8)
-                                        .frame(height: 220)
-                                      
-                                        
-                                    VStack{
-                                     
-                                        AsyncImage(url: URL(string: imagen.urls.regular)){ image in
-                                            image.resizable()
-                                        } placeholder: {
-                                            ProgressView()
-                                        }
-                                        .cornerRadius(20)
-                                        .frame(width: 150, height: 170)
-                                        .padding(5)
-                                        
-                                        HStack{
-                                            Text("\(imagen.user.username)")
-                                                .font(.system(size: 13))
-                                            Spacer()
-                                        }
-                                        .frame(width: 150, height: 15)
-                                        .foregroundColor(.black)
-                                     
-                                        
-
-                                        
+                                VStack{
+                                 
+                                    AsyncImage(url: URL(string: imagen.urls.regular)){ image in
+                                        image.resizable()
+                                    } placeholder: {
+                                        ProgressView()
                                     }
+                                    .cornerRadius(20)
+                                    .frame(width: 175, height: 200)
+                                    .padding(5)
+                                    
+                                 
                                 }
+                                
                                 
                                 
                             }.simultaneousGesture(TapGesture().onEnded({
@@ -81,8 +64,8 @@ struct PantallaPrincipal: View {
                     }
                     
                 } .padding(10)
-                    /*.background(  LinearGradient(gradient: Gradient(colors: [Color("ColorRosaClaro"), Color("ColorRojo")]), startPoint: .top, endPoint: .leading))*/
-                    .background(Color("ColorAmarilloClaro"))
+                    .background(  LinearGradient(gradient: Gradient(colors: [Color("ColorBaseDos"), Color("ColorBaseUno")]), startPoint: .top, endPoint: .bottom))
+                    //.background(Color("ColorAmarilloClaro"))
                 
             }
             

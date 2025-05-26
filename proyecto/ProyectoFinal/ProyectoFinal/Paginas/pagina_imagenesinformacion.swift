@@ -19,6 +19,7 @@ struct ImagenesInformacion: View {
             NavigationLink{
                 PerfilSeleccionado()
             }label: {
+                
                 HStack{
                    
                     AsyncImage(url: URL(string: controlador.imagen_seleccionada?.user.profile_image.large ?? "https://www.radioromance.com/wp-content/uploads/2025/01/PATOS.jpeg")){ image in
@@ -31,7 +32,7 @@ struct ImagenesInformacion: View {
                     .padding(5)
                     
                     Text(controlador.imagen_seleccionada?.user.username ?? "sin usuario")
-                        .foregroundStyle(Color.green)
+                        .foregroundStyle(Color.black)
                     
                     Spacer()
                     
@@ -66,7 +67,7 @@ struct ImagenesInformacion: View {
             
         }.frame(width: 400, height: 1000)
         /*.background(Color("ColorAmarilloClaro"))*/
-            .background(  LinearGradient(gradient: Gradient(colors: [Color("ColorAmarilloClaro"), Color("ColorRosaClaro")]), startPoint: .top, endPoint: .bottom))
+            .background(  LinearGradient(gradient: Gradient(colors: [Color("ColorBaseDos"), Color("ColorBaseUno")]), startPoint: .center, endPoint: .center))
     }
     
 }
