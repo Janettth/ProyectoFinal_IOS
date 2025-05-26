@@ -32,7 +32,8 @@ struct ImagenesInformacion: View {
                     .padding(5)
                     
                     Text(controlador.imagen_seleccionada?.user.username ?? "sin usuario")
-                        .foregroundStyle(Color.black)
+                        .foregroundStyle(Color.white)
+                        .font(.system(size: 25))
                     
                     Spacer()
                     
@@ -58,7 +59,7 @@ struct ImagenesInformacion: View {
             HStack{
                 Text("\(controlador.imagen_seleccionada?.description ?? "" )")
                     .multilineTextAlignment(.leading)
-                    .foregroundColor(.green)
+                    .foregroundStyle(Color.white)
                 
                 Spacer()
             }
@@ -66,8 +67,8 @@ struct ImagenesInformacion: View {
             .padding()
             
         }.frame(width: 400, height: 1000)
-        /*.background(Color("ColorAmarilloClaro"))*/
-            .background(  LinearGradient(gradient: Gradient(colors: [Color("ColorBaseDos"), Color("ColorBaseUno")]), startPoint: .center, endPoint: .center))
+        .background(Color("ColorBaseUno"))
+            /*.background(  LinearGradient(gradient: Gradient(colors: [Color("ColorBaseDos"), Color("ColorBaseUno")]), startPoint: .center, endPoint: .center))*/
     }
     
 }

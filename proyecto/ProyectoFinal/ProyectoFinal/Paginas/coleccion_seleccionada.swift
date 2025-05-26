@@ -26,8 +26,8 @@ struct ColeccionSeleccionada: View {
                                 
                                 RoundedRectangle(cornerSize: CGSize(width: 15, height: 15))
                                     .frame(width: 360, height: 400)
-                                    .foregroundColor(.white)
-                                    .opacity(0.5)
+                                    .foregroundColor(Color("ColorBaseDos"))
+                                  
                                 
                                 VStack{
                                     AsyncImage(url: URL(string: imagenColec.urls.regular)){ image in
@@ -50,7 +50,7 @@ struct ColeccionSeleccionada: View {
                                         .padding(10)
                                         
                                         Text(imagenColec.user.username)
-                                            .foregroundStyle(Color.black)
+                                            .foregroundStyle(Color.white)
                                             .font(.title3)
                                         Spacer()
                                     }
@@ -60,14 +60,16 @@ struct ColeccionSeleccionada: View {
                             }.padding()
                             Spacer()
                             
-                                .simultaneousGesture(TapGesture().onEnded({
-                                    controlador.descargar_imagen(id_imagen: imagenColec.id)
-                                }))
-                        }
+                                
+                        }.simultaneousGesture(TapGesture().onEnded({
+                            controlador.descargar_imagen(id_imagen: imagenColec.id)
+                        }))
                     }
                 }
                 
-            }.background(  LinearGradient(gradient: Gradient(colors: [Color("ColorAmarilloClaro"), Color("ColorRosaClaro")]), startPoint: .top, endPoint: .bottom))
+            }
+            /*.background(  LinearGradient(gradient: Gradient(colors: [Color("ColorAmarilloClaro"), Color("ColorRosaClaro")]), startPoint: .top, endPoint: .bottom))*/
+            .background(Color("ColorBaseUno"))
         }
     }
 }

@@ -9,6 +9,5 @@ struct Usuario: Identifiable, Codable{
     let id: String
     let username: String
     let name : String
-    let social: redesSociales
     let profile_image: urlPerfil
 }

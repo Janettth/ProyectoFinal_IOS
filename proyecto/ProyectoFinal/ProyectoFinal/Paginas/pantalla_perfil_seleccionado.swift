@@ -31,72 +31,76 @@ struct PerfilSeleccionado: View {
                                 .cornerRadius(100)
                             
                             
-                        
-                            HStack{
-                                Spacer()
-                                Text("\(controlador.PerfilSeleccionado?.username) ")
-                                    .foregroundColor(.green)
-                                
-                                Spacer()
-                                
-                                HStack{
-                                    Image(systemName: "ellipsis.message.fill")
-                                        .foregroundColor(.green)
-                                    
-                                    Text(controlador.PerfilSeleccionado?.social.instagram_username ?? "")
-                                }
-                               
-                                Spacer()
-                                
-                            }
+                            Text("\(controlador.PerfilSeleccionado?.username) ")
+                                .foregroundColor(Color("ColorBaseUno"))
+                                .bold()
+                                .font(.system(size: 25))
+                                .padding()
                             
                             Spacer()
                             
-                            HStack{
-                                Text("Más de \(controlador.PerfilSeleccionado?.username)")
-                                    .font(.custom("Arial", size: 25))
-                                    .foregroundColor(.green)
-                                    
-                                Spacer()
+                            
+                            Spacer()
+                            
+                            ZStack{
                                 
-                            }
-                           
-                            VStack{
+                                RoundedRectangle(cornerSize: CGSize(width: 15, height: 15))
+                                    .foregroundColor(.white)
+                                    .opacity(0.5)
+                                    
                                 
-                                LazyVGrid(columns: [
+                                VStack{
                                     
-                                    GridItem(.flexible(minimum: 80, maximum: 250)),
-                                    GridItem(.flexible(minimum: 80, maximum: 250))
+                                    HStack{
+                                        Text("Más de \(controlador.PerfilSeleccionado?.username)")
+                                            .font(.custom("Arial", size: 25))
+                                            .foregroundColor(.black)
+                                            .frame(width: 315)
+                                        
+                                        Spacer()
+
+                                    }
+                                    .padding()
                                     
-                                    
-                                ]){
-                                    
-                                    ForEach(controlador.Imagenes_de_perfil){
-                                        imagen in
-                                        NavigationLink{
-                                            ImagenesInformacion()
-                                        }label: {
+                                    VStack{
+                                        
+                                        LazyVGrid(columns: [
                                             
-                                            VStack{
-                                                AsyncImage(url: URL(string: imagen.urls.regular)){ image in
-                                                    image.resizable()
-                                                } placeholder: {
-                                                    ProgressView()
-                                                }.frame(width: 150, height: 170)
-                                                    .cornerRadius(25)
-                                                
+                                            GridItem(.flexible(minimum: 80, maximum: 250)),
+                                            GridItem(.flexible(minimum: 80, maximum: 250))
+                                            
+                                            
+                                        ]){
+                                            
+                                            ForEach(controlador.Imagenes_de_perfil){
+                                                imagen in
+                                                NavigationLink{
+                                                    ImagenesInformacion()
+                                                }label: {
+                                                    
+                                                    VStack{
+                                                        AsyncImage(url: URL(string: imagen.urls.regular)){ image in
+                                                            image.resizable()
+                                                        } placeholder: {
+                                                            ProgressView()
+                                                        }.frame(width: 150, height: 170)
+                                                            .cornerRadius(25)
+                                                        
+                                                    }
+                                                    
+                                                }.simultaneousGesture(TapGesture().onEnded({
+                                                    controlador.descargar_imagen(id_imagen: imagen.id)
+                                                }))
                                             }
-                                            
-                                        }.simultaneousGesture(TapGesture().onEnded({
-                                            controlador.descargar_imagen(id_imagen: imagen.id)
-                                        }))
+                                        }
                                     }
                                 }
                             }
                         }
                     }
                     .padding(40)
-                    .background(  LinearGradient(gradient: Gradient(colors: [Color("ColorAmarilloClaro"), Color("ColorRosaClaro")]), startPoint: .top, endPoint: .bottom))
+                    /*.background(  LinearGradient(gradient: Gradient(colors: [Color("ColorBaseDos"), Color("ColorBaseUno")]), startPoint: .top, endPoint: .bottom))*/
+                    .background(Color("ColorBaseDos"))
                        
                 }
             }

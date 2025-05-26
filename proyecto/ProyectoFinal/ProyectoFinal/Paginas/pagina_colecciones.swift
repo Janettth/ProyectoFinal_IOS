@@ -21,7 +21,8 @@ struct PaginaColecciones: View {
                     }
                     .frame(width: 350)
                     .padding()
-                    .foregroundColor(.green)
+                    .foregroundColor(Color("ColorBaseUno"))
+                    .bold()
                     
                     ForEach(controlador.colecciones){ coleccion in
                         NavigationLink{
@@ -39,13 +40,13 @@ struct PaginaColecciones: View {
                                         ProgressView()
                                     }
                                     .cornerRadius(20)
-                                    .frame(width: 350, height: 190)
+                                    .frame(width: 350, height: 200)
                                     .padding(5)
                                     
                                     
                                     RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
                                         .foregroundColor(.white)
-                                        .opacity(0.25)
+                                        .opacity(0.15)
                                     
                                 }
                                 Text(coleccion.title).foregroundStyle(Color.white)
@@ -62,7 +63,10 @@ struct PaginaColecciones: View {
                     }
                 }
                 
-            }.background(  LinearGradient(gradient: Gradient(colors: [Color("ColorAmarilloClaro"), Color("ColorRosaClaro")]), startPoint: .top, endPoint: .bottom))
+            }
+            /*.background(  LinearGradient(gradient: Gradient(colors: [Color("ColorAmarilloClaro"), Color("ColorRosaClaro")]), startPoint: .top, endPoint: .bottom))*/
+            .frame(width: .infinity, height: .infinity)
+            .background(Color("ColorBaseDos"))
         }
     }
 }

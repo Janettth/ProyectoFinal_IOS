@@ -21,8 +21,9 @@ struct PantallaPrincipal: View {
                         
                         Text("Random\nPics :)")
                             .padding(20)
-                            .foregroundColor(.black)
+                            .foregroundColor(.white)
                             .font(.custom("Arial", size: 50))
+                            .bold()
                         
                         Spacer()
                     }
@@ -64,8 +65,9 @@ struct PantallaPrincipal: View {
                     }
                     
                 } .padding(10)
-                    .background(  LinearGradient(gradient: Gradient(colors: [Color("ColorBaseDos"), Color("ColorBaseUno")]), startPoint: .top, endPoint: .bottom))
-                    //.background(Color("ColorAmarilloClaro"))
+                    .background(  LinearGradient(gradient: Gradient(colors: [Color("ColorBaseDos"), Color("ColorBaseUno")]), startPoint: .center, endPoint: .top))
+            
+                    /*.background(Color("ColorBaseUno"))*/
                 
             }
             
