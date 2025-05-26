@@ -9,8 +9,8 @@ import SwiftUI
 
 class ImagenesAPI: Codable{
     let url_base = "https://api.unsplash.com/"
-    //let accesskey = "THNOFvVX69hdvSrcYwrqmWzcKhjLEmUfy21HC34iPVs" //esta es la key primera
-    let accesskey = "9VQvEkap4123YivIRyEQVoahXDKW-vm2ww5-sCPLjRo" //esta es la key segunda
+    let accesskey = "THNOFvVX69hdvSrcYwrqmWzcKhjLEmUfy21HC34iPVs" //esta es la key primera
+    //let accesskey = "9VQvEkap4123YivIRyEQVoahXDKW-vm2ww5-sCPLjRo" //esta es la key segunda
     
     func descaragar_imagenes() async throws -> [Imagen]?{
         let endpoint = "/photos?per_page=30"
